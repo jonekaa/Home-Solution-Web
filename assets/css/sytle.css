@@ -3,6 +3,27 @@
 
 /*
  * =========================================
+ * PERBAIKAN UNTUK "BOUNCING" (LAYOUT SHIFT)
+ * =========================================
+ * Memberi "ruang" untuk header & footer
+ * bahkan sebelum JavaScript memuatnya.
+*/
+
+#header-placeholder,
+#footer-placeholder {
+    /* Atur 'min-height' sesuai tinggi header Anda.
+      70px biasanya cukup untuk 1 baris navbar.
+      Footer bisa diberi 300px atau lebih.
+    */
+    min-height: 70px;
+}
+
+#footer-placeholder {
+    min-height: 350px; /* Sesuaikan dengan tinggi footer Anda */
+}
+
+/*
+ * =========================================
  * PROFESSIONAL PRACTICE: CSS CUSTOM PROPERTIES (VARIABLES)
  * =========================================
  *
@@ -231,6 +252,6 @@ body {
 }
 
 /* Untuk memberi jarak agar footer tidak tertutup bar */
-body {
+body.page-keramik {
     padding-bottom: 120px; /* Sesuaikan dengan tinggi .koleksi-saya-bar */
 }
