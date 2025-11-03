@@ -70,9 +70,11 @@ async function loadComponent(id, url) {
 document.addEventListener("DOMContentLoaded", async function () {
     // Muat header dan footer secara bersamaan
     // Promise.all menunggu keduanya selesai sebelum lanjut
+    const pathPrefix = window.location.pathname.includes("/pages/") ? "../" : "";
+
     await Promise.all([
-        loadComponent("header-placeholder", "/_header.html"),
-        loadComponent("footer-placeholder", "/_footer.html")
+        loadComponent("header-placeholder", pathPrefix + "_header.html"),
+        loadComponent("footer-placeholder", pathPrefix + "_footer.html")
     ]);
 
     // PENTING:
