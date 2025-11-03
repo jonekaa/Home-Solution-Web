@@ -1,21 +1,17 @@
 // File: assets/js/main.js
+// VERSI BARU DENGAN PATH REWRITER
 
 // Fungsi untuk mengaktifkan theme switcher
 function setupThemeSwitcher() {
     const htmlElement = document.documentElement;
     const switchElement = document.getElementById("theme-switcher");
-
-    // Jika tidak ada switcher di halaman ini, hentikan
-    if (!switchElement) {
-        return;
-    }
+    if (!switchElement) return;
 
     const lightIcon = document.getElementById("theme-icon-light");
     const darkIcon = document.getElementById("theme-icon-dark");
 
     function setActiveIcon(theme) {
         if (!lightIcon || !darkIcon) return;
-
         if (theme === "dark") {
             lightIcon.classList.remove("text-primary");
             darkIcon.classList.add("text-primary");
@@ -49,16 +45,36 @@ function setupThemeSwitcher() {
     });
 }
 
-// Fungsi untuk memuat komponen (header/footer)
-// Menggunakan async/await agar lebih rapi
-async function loadComponent(id, url) {
+/**
+ * Memuat komponen (header/footer) dan memperbaiki path-nya.
+ * @param {string} id - ID elemen placeholder (misal: "header-placeholder")
+ * @param {string} url - Path ke file template (misal: "_header.html")
+ * @param {string} pathPrefix - Prefix yang harus ditambahkan ke link (misal: "../")
+ */
+async function loadComponent(id, url, pathPrefix) {
     try {
-        const response = await fetch(url);
+        const response = await fetch(pathPrefix + url); // 1. Muat template
         if (!response.ok) {
-            throw new Error(`Gagal memuat ${url}: ${response.statusText}`);
+            throw new Error(`Gagal memuat ${pathPrefix + url}: ${response.statusText}`);
         }
-        const data = await response.text();
+        let data = await response.text(); // 2. Ambil HTML sebagai teks
+
+        // 3. PERBAIKAN DINAMIS:
+        // Ganti semua link 'href' dan 'src' yang *tidak* diawali http
+        // untuk menambahkan pathPrefix.
+        // Ini adalah "Sihir"-nya:
+        if (pathPrefix) {
+            // Regex untuk menemukan href="..." atau src="..."
+            // yang TIDAK dimulai dengan 'http' atau '#'
+            data = data.replace(
+                /(href|src)="(?!#|http|mailto|tel)([^"]*)"/g,
+                `$1="${pathPrefix}$2"`
+            );
+        }
+
+        // 4. Suntikkan HTML yang sudah diperbaiki
         document.getElementById(id).innerHTML = data;
+
     } catch (error) {
         console.error(error);
         document.getElementById(id).innerHTML = `<p class="text-danger text-center">Gagal memuat ${id}.</p>`;
@@ -66,19 +82,16 @@ async function loadComponent(id, url) {
 }
 
 // Event Listener utama
-// Ini akan berjalan setelah HTML dasar selesai dimuat
 document.addEventListener("DOMContentLoaded", async function () {
-    // Muat header dan footer secara bersamaan
-    // Promise.all menunggu keduanya selesai sebelum lanjut
+    // Tentukan prefix berdasarkan lokasi file HTML
     const pathPrefix = window.location.pathname.includes("/pages/") ? "../" : "";
 
+    // Muat header dan footer secara bersamaan
     await Promise.all([
-        loadComponent("header-placeholder", pathPrefix + "_header.html"),
-        loadComponent("footer-placeholder", pathPrefix + "_footer.html")
+        loadComponent("header-placeholder", "_header.html", pathPrefix),
+        loadComponent("footer-placeholder", "_footer.html", pathPrefix)
     ]);
 
-    // PENTING:
-    // Setelah header DIJAMIN selesai dimuat,
-    // BARU kita jalankan script untuk theme switcher-nya.
+    // Jalankan theme switcher SETELAH header dimuat
     setupThemeSwitcher();
 });
