@@ -1,0 +1,164 @@
+/* Import Font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap");
+
+/*
+ * =========================================
+ * PROFESSIONAL PRACTICE: CSS CUSTOM PROPERTIES (VARIABLES)
+ * =========================================
+ *
+ * Kita definisikan SEMUA warna dan style kustom di :root.
+ * :root secara default adalah light mode (data-bs-theme="light").
+*/
+
+:root {
+    /* 1. Variabel Warna Brand */
+    --bs-primary: #1a237e;
+    --bs-primary-rgb: 26, 35, 126;
+    --bs-dark: #0d1245; /* Untuk footer */
+    --bs-dark-rgb: 13, 18, 69;
+    --bs-whatsapp: #25d366;
+    --bs-whatsapp-hover: #128c7e;
+
+    /* 2. Variabel Kustom Helper */
+    --custom-text-dark: #0d1245; /* Judul seksi yang gelap */
+    --custom-card-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+    --custom-card-img-height: 220px;
+    --custom-proyek-img-height: 350px;
+}
+
+/*
+ * =========================================
+ * DEFINISI DARK MODE
+ * =========================================
+ *
+ * Di sini, kita HANYA menimpa (override) variabel yang perlu diubah
+ * saat mode gelap aktif.
+*/
+
+[data-bs-theme="dark"] {
+    /* 1. Variabel Warna Brand (Dibuat lebih cerah agar kontras) */
+    --bs-primary: #5c6bc0;
+    --bs-primary-rgb: 92, 107, 192;
+    --bs-dark: #000; /* Footer jadi hitam pekat */
+    --bs-dark-rgb: 0, 0, 0;
+
+    /* 2. Variabel Kustom Helper */
+    --custom-text-dark: #e8eaf6; /* Judul seksi jadi biru muda */
+    --custom-card-shadow: 0 8px 20px rgba(255, 255, 255, 0.05); /* Shadow terang */
+}
+
+/*
+ * =========================================
+ * GLOBAL & COMPONENT STYLES
+ * =========================================
+ *
+ * Style di bawah ini sekarang menggunakan variabel di atas,
+ * sehingga mereka otomatis beradaptasi dengan tema.
+*/
+
+body {
+    font-family:
+        "Poppins",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+    /* Bootstrap 5.3+ otomatis mengatur 'background-color' dan 'color'
+      berdasarkan [data-bs-theme], jadi kita tidak perlu set manual.
+    */
+}
+
+/* --- Helper Class Kustom --- */
+.text-primary-dark {
+    color: var(--custom-text-dark);
+}
+
+/* --- Kustomisasi Tombol --- */
+.btn-primary {
+    --bs-btn-bg: var(--bs-primary);
+    --bs-btn-border-color: var(--bs-primary);
+    --bs-btn-hover-bg: #0d1245; /* Tetap gelap saat hover (di light) */
+    --bs-btn-hover-border-color: #0d1245;
+    padding: 10px 24px;
+}
+
+[data-bs-theme="dark"] .btn-primary {
+    --bs-btn-hover-bg: #e8eaf6; /* Jadi terang saat hover (di dark) */
+    --bs-btn-hover-border-color: #e8eaf6;
+    --bs-btn-hover-color: #000;
+}
+
+.btn-whatsapp {
+    background-color: var(--bs-whatsapp);
+    color: #fff;
+    transition: all 0.3s ease;
+}
+.btn-whatsapp:hover {
+    background-color: var(--bs-whatsapp-hover);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* --- Navbar --- */
+.navbar .nav-link {
+    font-size: 1.05rem;
+    margin: 0 0.5rem;
+}
+.navbar .navbar-brand {
+    color: var(--bs-primary);
+}
+
+/* Ikon Tema (Switcher) */
+#theme-icon-light,
+#theme-icon-dark {
+    color: var(--bs-gray-600); /* Warna ikon non-aktif */
+}
+/* Warna ikon aktif akan di-handle oleh JS (menambah class .text-primary) */
+
+/* --- 3. Hero Section --- */
+.hero-section {
+    min-height: 80vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url("https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop");
+    background-size: cover;
+    background-position: center;
+}
+
+/* --- 5. Divisi Produk (Cards) --- */
+.card-hover {
+    transition: all 0.3s ease;
+}
+.card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--custom-card-shadow) !important;
+}
+
+.card-img-fixed {
+    height: var(--custom-card-img-height);
+    object-fit: cover;
+}
+
+/* --- 7. Showcase Proyek (Cards) --- */
+.card-proyek {
+    overflow: hidden;
+}
+.card-proyek .card-img {
+    height: var(--custom-proyek-img-height);
+    object-fit: cover;
+    transition: all 0.5s ease;
+}
+.card-proyek .card-img-overlay {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent 50%);
+}
+.card-proyek:hover .card-img {
+    transform: scale(1.05);
+}
+
+/* --- 10. Footer --- */
+.footer a.nav-link:hover,
+.footer a.text-muted:hover {
+    color: #fff !important;
+}
