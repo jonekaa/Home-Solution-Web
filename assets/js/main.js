@@ -71,8 +71,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     // Muat header dan footer secara bersamaan
     // Promise.all menunggu keduanya selesai sebelum lanjut
     await Promise.all([
-        loadComponent("header-placeholder", "_header.html"),
-        loadComponent("footer-placeholder", "_footer.html")
+        loadComponent("header-placeholder", "/_header.html"),
+        loadComponent("footer-placeholder", "/_footer.html")
     ]);
 
     // PENTING:

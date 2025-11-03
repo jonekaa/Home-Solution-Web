@@ -14,7 +14,7 @@
         <link
             href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap"
             rel="stylesheet" />
-        <link rel="stylesheet" href="assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/style.css" />
     </head>
     <body>
         <header id="header-placeholder"></header>
@@ -33,7 +33,7 @@
                                 <i class="bi bi-patch-check-fill text-primary"></i> Bergaransi & Bersertifikasi SNI
                             </p>
                             <p class="text-muted">
-                                <i class="bi bi-patch-check-fill text-primary"></i> Konsultasi & Survei Gratis
+                                <i class="bi bi-patch-check-fill text-primary"></i> Konsultasi Gratis
                             </p>
                         </div>
 
@@ -41,44 +41,59 @@
                             <div class="card shadow-lg border-0">
                                 <div class="card-body p-4 p-md-5">
                                     <h3 class="fw-bold text-center mb-4">Mulai Estimasi Proyek Anda</h3>
-                                    <form>
+
+                                    <form id="wizard-form">
                                         <div class="mb-3">
-                                            <label class="form-label fw-semibold">1. Apa Kebutuhan Proyek Anda?</label>
-                                            <select class="form-select form-select-lg">
-                                                <option selected>Pilih Tipe Proyek...</option>
-                                                <option value="1">Jendela Rumah</option>
-                                                <option value="2">Pintu Kaca</option>
-                                                <option value="3">Partisi Kantor</option>
-                                                <option value="4">Shower Box Kamar Mandi</option>
-                                                <option value="5">Fasad Gedung</option>
-                                                <option value="6">Lainnya</option>
+                                            <label for="wizard-tipe-proyek" class="form-label fw-semibold"
+                                                >1. Apa Kebutuhan Proyek Anda?</label
+                                            >
+                                            <select class="form-select form-select-lg" id="wizard-tipe-proyek">
+                                                <option value="" selected>Pilih Tipe Proyek...</option>
+                                                <option value="Jendela Rumah">Jendela Rumah</option>
+                                                <option value="Pintu Kaca">Pintu Kaca</option>
+                                                <option value="Partisi Kantor">Partisi Kantor</option>
+                                                <option value="Shower Box Kamar Mandi">Shower Box Kamar Mandi</option>
+                                                <option value="Fasad Gedung">Fasad Gedung</option>
+                                                <option value="Lainnya">Lainnya</option>
                                             </select>
                                         </div>
 
                                         <div class="mb-3">
-                                            <label class="form-label fw-semibold">2. Pilih Tipe Kaca</label>
-                                            <select class="form-select form-select-lg">
-                                                <option selected>Pilih Tipe Kaca...</option>
-                                                <option value="1">Kaca Polos (Clear)</option>
-                                                <option value="2">Kaca Tempered (Kekuatan 5x)</option>
-                                                <option value="3">Kaca Laminated (Anti Pecah)</option>
-                                                <option value="4">Kaca Double Glazing (Peredam Suara)</option>
+                                            <label for="wizard-tipe-kaca" class="form-label fw-semibold"
+                                                >2. Pilih Tipe Kaca</label
+                                            >
+                                            <select class="form-select form-select-lg" id="wizard-tipe-kaca">
+                                                <option value="" selected>Pilih Tipe Kaca...</option>
+                                                <option value="Kaca Polos (Clear)">Kaca Polos (Clear)</option>
+                                                <option value="Kaca Tempered">Kaca Tempered (Kekuatan 5x)</option>
+                                                <option value="Kaca Laminated">Kaca Laminated (Anti Pecah)</option>
+                                                <option value="Kaca Double Glazing">
+                                                    Kaca Double Glazing (Peredam Suara)
+                                                </option>
                                             </select>
                                         </div>
 
                                         <div class="mb-3">
                                             <label class="form-label fw-semibold">3. Estimasi Ukuran (Opsional)</label>
                                             <div class="input-group">
-                                                <input type="number" class="form-control" placeholder="Panjang (cm)" />
+                                                <input
+                                                    type="number"
+                                                    class="form-control"
+                                                    placeholder="Panjang (cm)"
+                                                    id="wizard-panjang" />
                                                 <span class="input-group-text">x</span>
-                                                <input type="number" class="form-control" placeholder="Tinggi (cm)" />
+                                                <input
+                                                    type="number"
+                                                    class="form-control"
+                                                    placeholder="Tinggi (cm)"
+                                                    id="wizard-tinggi" />
                                             </div>
                                         </div>
 
                                         <div class="d-grid mt-4">
-                                            <a href="#" class="btn btn-lg btn-whatsapp fw-bold">
+                                            <button type="submit" class="btn btn-lg btn-whatsapp fw-bold">
                                                 <i class="bi bi-whatsapp me-2"></i>Dapatkan Penawaran via WhatsApp
-                                            </a>
+                                            </button>
                                         </div>
                                     </form>
                                 </div>
@@ -93,7 +108,7 @@
                     <h2 class="text-center mb-5 fw-bold text-primary-dark">Portofolio Proyek Kami</h2>
                     <div class="row g-4">
                         <div class="col-md-6">
-                            <div class="card text-white border-0 shadow-sm card-proyek">
+                            <div class="card border-0 shadow-sm card-proyek">
                                 <img
                                     src="https://images.unsplash.com/photo-1572093370669-3122b102558f?q=80&w=800&auto=format&fit=crop"
                                     class="card-img"
@@ -105,7 +120,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="card text-white border-0 shadow-sm card-proyek">
+                            <div class="card border-0 shadow-sm card-proyek">
                                 <img
                                     src="https://images.unsplash.com/photo-1600211830935-23c563b7e73d?q=80&w=800&auto=format&fit=crop"
                                     class="card-img"
@@ -173,13 +188,17 @@
                 </div>
             </section>
 
-            <section class="py-5 bg-primary text-white text-center">
+            <section class="py-5 bg-primary text-center" data-bs-theme="dark">
                 <div class="container">
                     <h2 class="fw-bold display-5">Anda Kontraktor atau Arsitek?</h2>
                     <p class="fs-4 lead my-4 mx-auto" style="max-width: 700px">
                         Dapatkan harga spesial B2B dan katalog lengkap material kami untuk kebutuhan proyek skala besar.
                     </p>
-                    <a href="#" class="btn btn-lg btn-light fw-bold text-primary">
+                    <a
+                        href="https://wa.me/6287775080483?text=Halo%2C%20saya%20kontraktor%2Farsitek%20dan%20mau%20tanya%20harga%20proyek%20kaca."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-lg btn-light fw-bold text-primary">
                         <i class="bi bi-person-workspace me-2"></i>Chat dengan Tim Proyek
                     </a>
                 </div>
@@ -190,6 +209,7 @@
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" ...></script>
 
-        <script src="assets/js/main.js"></script>
+        <script src="../assets/js/main.js"></script>
+        <script src="../assets/js/page-kaca.js"></script>
     </body>
 </html>
