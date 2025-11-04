@@ -255,3 +255,31 @@ body {
 body.page-keramik {
     padding-bottom: 120px; /* Sesuaikan dengan tinggi .koleksi-saya-bar */
 }
+
+/*
+ * =========================================
+ * STYLES UNTUK HALAMAN FURNITURE
+ * =========================================
+*/
+
+.btn-icon-marketplace {
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+/* Memberi warna brand */
+.btn-icon-marketplace.text-whatsapp {
+    color: var(--bs-whatsapp);
+}
+.btn-icon-marketplace.text-tokopedia {
+    color: #03ac0e;
+}
+.btn-icon-marketplace.text-shopee {
+    color: #ee4d2d;
+}
+
+/* Efek hover */
+.btn-icon-marketplace:hover {
+    opacity: 0.7;
+    transform: translateY(-2px);
+}

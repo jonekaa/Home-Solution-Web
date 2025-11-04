@@ -1,0 +1,82 @@
+[
+    {
+        "id": "SKU001",
+        "nama": "Kursi Jati Minimalis \"Saka\"",
+        "harga": 1250000,
+        "gambar": "https://images.unsplash.com/photo-1592078615290-0332f53c8ce8?q=80&w=400&auto=format&fit=crop",
+        "kategori": "kursi",
+        "badge": "DISKON",
+        "badgeColor": "bg-danger",
+        "marketplace": [
+            {
+                "nama": "tokopedia",
+                "url": "#",
+                "icon": "bi-bag-fill",
+                "color": "text-tokopedia"
+            },
+            {
+                "nama": "shopee",
+                "url": "#",
+                "icon": "bi-shop",
+                "color": "text-shopee"
+            }
+        ]
+    },
+    {
+        "id": "SKU002",
+        "nama": "Lampu Gantung Rotan \"Senja\"",
+        "harga": 480000,
+        "gambar": "https://images.unsplash.com/photo-1540932239986-30128078f3c5?q=80&w=400&auto=format=fit=crop",
+        "kategori": "dekorasi",
+        "badge": "BARU",
+        "badgeColor": "bg-success",
+        "marketplace": [
+            {
+                "nama": "tiktok",
+                "url": "#",
+                "icon": "bi-tiktok",
+                "color": "text-dark"
+            },
+            {
+                "nama": "shopee",
+                "url": "#",
+                "icon": "bi-shop",
+                "color": "text-shopee"
+            }
+        ]
+    },
+    {
+        "id": "SKU003",
+        "nama": "\"Kopi\" Teak Coffee Table",
+        "harga": 899000,
+        "gambar": "https://images.unsplash.com/photo-1503602642458-232111409258?q=80&w=400&auto=format&fit=crop",
+        "kategori": "meja",
+        "badge": "",
+        "badgeColor": "",
+        "marketplace": [
+            {
+                "nama": "tokopedia",
+                "url": "#",
+                "icon": "bi-bag-fill",
+                "color": "text-tokopedia"
+            }
+        ]
+    },
+    {
+        "id": "SKU004",
+        "nama": "\"Nyaman\" 2-Seater Sofa",
+        "harga": 3450000,
+        "gambar": "https://images.unsplash.com/photo-1616627561950-b4f3b8f1b1b1?q=80&w=400&auto=format&fit=crop",
+        "kategori": "kursi",
+        "badge": "",
+        "badgeColor": "",
+        "marketplace": [
+            {
+                "nama": "shopee",
+                "url": "#",
+                "icon": "bi-shop",
+                "color": "text-shopee"
+            }
+        ]
+    }
+]

@@ -46,6 +46,9 @@
                 <div class="container text-center">
                     <h5 class="mb-3">Belanja Mudah di Marketplace Favorit Anda:</h5>
                     <a href="#" class="btn btn-marketplace btn-shopee me-2 mb-2"
+                        ><i class="bi bi-whatsapp me-2"></i>WhatsApp</a
+                    >
+                    <a href="#" class="btn btn-marketplace btn-shopee me-2 mb-2"
                         ><i class="bi bi-shop me-2"></i>Shopee</a
                     >
                     <a href="#" class="btn btn-marketplace btn-tokopedia me-2 mb-2"
@@ -61,12 +64,31 @@
                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
                     <div class="mb-2 mb-md-0">
                         <span class="fw-semibold me-2">Kategori:</span>
-                        <div class="btn-group">
-                            <a href="#" class="btn btn-outline-primary active">Semua</a>
-                            <a href="#" class="btn btn-outline-primary">Kursi</a>
-                            <a href="#" class="btn btn-outline-primary">Meja</a>
-                            <a href="#" class="btn btn-outline-primary">Lemari</a>
-                            <a href="#" class="btn btn-outline-primary">Dekorasi</a>
+                        <div class="btn-group" id="kategori-filter">
+                            <a
+                                href="javascript:void(0);"
+                                class="btn btn-outline-primary active btn-kategori"
+                                data-filter="semua"
+                                >Semua</a
+                            >
+                            <a
+                                href="javascript:void(0);"
+                                class="btn btn-outline-primary btn-kategori"
+                                data-filter="kursi"
+                                >Kursi</a
+                            >
+                            <a
+                                href="javascript:void(0);"
+                                class="btn btn-outline-primary btn-kategori"
+                                data-filter="meja"
+                                >Meja</a
+                            >
+                            <a
+                                href="javascript:void(0);"
+                                class="btn btn-outline-primary btn-kategori"
+                                data-filter="lemari"
+                                >Lemari</a
+                            >
                         </div>
                     </div>
                     <div class="d-flex align-items-center">
@@ -83,103 +105,17 @@
 
             <section class="py-5">
                 <div class="container">
-                    <div class="row g-4">
-                        <div class="col-lg-3 col-md-4 col-6">
-                            <div class="card h-100 shadow-sm border-0 card-hover product-card">
-                                <span class="badge bg-danger position-absolute top-0 start-0 m-2">DISKON</span>
-                                <img
-                                    src="https://images.unsplash.com/photo-1592078615290-0332f53c8ce8?q=80&w=400&auto=format&fit=crop"
-                                    class="card-img-top card-img-fixed"
-                                    alt="Kursi Jati" />
-                                <div class="card-body d-flex flex-column">
-                                    <h5 class="card-title fs-6 fw-semibold text-primary-dark">
-                                        Kursi Jati Minimalis "Saka"
-                                    </h5>
-                                    <p class="card-text fw-bold text-primary fs-5 mb-3">Rp 1.250.000</p>
-
-                                    <div class="mt-auto">
-                                        <small class="text-muted d-block mb-2">Beli di:</small>
-                                        <a href="#" class="btn btn-sm btn-marketplace btn-tokopedia w-100 mb-2"
-                                            >Tokopedia</a
-                                        >
-                                        <a href="#" class="btn btn-sm btn-marketplace btn-shopee w-100">Shopee</a>
-                                    </div>
-                                </div>
+                    <div class="row g-4" id="product-grid">
+                        <div class="col-12 text-center py-5">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Memuat produk...</span>
                             </div>
+                            <p class="mt-2">Memuat produk...</p>
                         </div>
-
-                        <div class="col-lg-3 col-md-4 col-6">
-                            <div class="card h-100 shadow-sm border-0 card-hover product-card">
-                                <span class="badge bg-success position-absolute top-0 start-0 m-2">BARU</span>
-                                <img
-                                    src="https://images.unsplash.com/photo-1540932239986-30128078f3c5?q=80&w=400&auto=format=fit=crop"
-                                    class="card-img-top card-img-fixed"
-                                    alt="Lampu Gantung" />
-                                <div class="card-body d-flex flex-column">
-                                    <h5 class="card-title fs-6 fw-semibold text-primary-dark">
-                                        Lampu Gantung Rotan "Senja"
-                                    </h5>
-                                    <p class="card-text fw-bold text-primary fs-5 mb-3">Rp 480.000</p>
-
-                                    <div class="mt-auto">
-                                        <small class="text-muted d-block mb-2">Beli di:</small>
-                                        <a href="#" class="btn btn-sm btn-marketplace btn-tiktok w-100 mb-2"
-                                            >TikTok Shop</a
-                                        >
-                                        <a href="#" class="btn btn-sm btn-marketplace btn-shopee w-100">Shopee</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-4 col-6">
-                            <div class="card h-100 shadow-sm border-0 card-hover product-card">
-                                <img
-                                    src="https://images.unsplash.com/photo-1503602642458-232111409258?q=80&w=400&auto=format&fit=crop"
-                                    class="card-img-top card-img-fixed"
-                                    alt="Meja Kopi" />
-                                <div class="card-body d-flex flex-column">
-                                    <h5 class="card-title fs-6 fw-semibold text-primary-dark">
-                                        "Kopi" Teak Coffee Table
-                                    </h5>
-                                    <p class="card-text fw-bold text-primary fs-5 mb-3">Rp 899.000</p>
-
-                                    <div class="mt-auto">
-                                        <small class="text-muted d-block mb-2">Beli di:</small>
-                                        <a href="#" class="btn btn-sm btn-marketplace btn-tokopedia w-100">Tokopedia</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-4 col-6">
-                            <div class="card h-100 shadow-sm border-0 card-hover product-card">
-                                <img
-                                    src="https://images.unsplash.com/photo-1616627561950-b4f3b8f1b1b1?q=80&w=400&auto=format&fit=crop"
-                                    class="card-img-top card-img-fixed"
-                                    alt="Sofa" />
-                                <div class="card-body d-flex flex-column">
-                                    <h5 class="card-title fs-6 fw-semibold text-primary-dark">
-                                        "Nyaman" 2-Seater Sofa
-                                    </h5>
-                                    <p class="card-text fw-bold text-primary fs-5 mb-3">Rp 3.450.000</p>
-
-                                    <div class="mt-auto">
-                                        <small class="text-muted d-block mb-2">Beli di:</small>
-                                        <a href="#" class="btn btn-sm btn-marketplace btn-shopee w-100">Shopee</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-4 col-6">...</div>
-                        <div class="col-lg-3 col-md-4 col-6">...</div>
-                        <div class="col-lg-3 col-md-4 col-6">...</div>
-                        <div class="col-lg-3 col-md-4 col-6">...</div>
                     </div>
 
                     <nav aria-label="Page navigation" class="mt-5 d-flex justify-content-center">
-                        <ul class="pagination">
+                        <ul class="pagination" id="pagination-container">
                             <li class="page-item disabled"><a class="page-link" href="#">Sebelumnya</a></li>
                             <li class="page-item active"><a class="page-link" href="#">1</a></li>
                             <li class="page-item"><a class="page-link" href="#">2</a></li>
@@ -210,5 +146,6 @@
             crossorigin="anonymous"></script>
 
         <script src="../assets/js/main.js"></script>
+        <script src="../assets/js/page-furniture.js"></script>
     </body>
 </html>
