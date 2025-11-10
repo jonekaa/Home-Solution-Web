@@ -1,5 +1,5 @@
 {
-    "livePreviewUseDevServer": false,
+    "livePreviewUseDevServer": true,
     "livePreviewServerProjectPath": "/",
     "livePreviewHotReloadSupported": false,
     "livePreviewFramework": "Custom"

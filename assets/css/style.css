@@ -1,50 +1,61 @@
+/* Mockup Website/assets/css/style.css */
+
 /* Import Font */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap");
 
 /*
  * =========================================
- * PERBAIKAN UNTUK "BOUNCING" (LAYOUT SHIFT)
+ * PENCEGAHAN "BOUNCING" (LAYOUT SHIFT)
  * =========================================
- * Memberi "ruang" untuk header & footer
- * bahkan sebelum JavaScript memuatnya.
+ * Memberi 'min-height' pada placeholder header/footer
+ * agar halaman tidak "melompat" saat JS memuat komponen.
 */
 
 #header-placeholder,
 #footer-placeholder {
-    /* Atur 'min-height' sesuai tinggi header Anda.
-      70px biasanya cukup untuk 1 baris navbar.
-      Footer bisa diberi 300px atau lebih.
-    */
+    /* 70px cukup untuk 1 baris navbar */
     min-height: 70px;
 }
 
 #footer-placeholder {
-    min-height: 350px; /* Sesuaikan dengan tinggi footer Anda */
+    min-height: 350px; /* Sesuaikan dengan tinggi footer */
 }
 
 /*
  * =========================================
- * PROFESSIONAL PRACTICE: CSS CUSTOM PROPERTIES (VARIABLES)
+ * CSS CUSTOM PROPERTIES (VARIABLES) - INILAH PUSAT KONTROL DESAIN
  * =========================================
  *
- * Kita definisikan SEMUA warna dan style kustom di :root.
- * :root secara default adalah light mode (data-bs-theme="light").
+ * Di sinilah kita mendefinisikan palet warna "Warm Natural"
+ * yang Anda minta (Putih, Abu-abu, Coklat Kayu).
+ * Mengganti nilai di sini akan mengubah seluruh tampilan situs.
 */
 
 :root {
-    /* 1. Variabel Warna Brand */
-    --bs-primary: #1a237e;
-    --bs-primary-rgb: 26, 35, 126;
-    --bs-dark: #0d1245; /* Untuk footer */
-    --bs-dark-rgb: 13, 18, 69;
+    /* 1. Variabel Warna Brand (Warm Natural Palette) */
+    --bs-primary: #5d4037; /* Dark Wood Brown (Walnut) - Warna Aksen Utama */
+    --bs-primary-rgb: 93, 64, 55;
+    --bs-dark: #3e2723; /* Very Dark Brown (Footer) */
+    --bs-dark-rgb: 62, 39, 35;
+    --bs-secondary: #a1887f; /* Lighter Brown/Grey (Taupe) */
+    --bs-light: #f5f5f5; /* Off-white/Light Grey (untuk BG) */
+
+    /* 2. Override Variabel Bootstrap Bawaan */
+    --bs-body-bg: #ffffff; /* Latar belakang utama: Putih bersih (Minimalis) */
+    --bs-body-color: #424242; /* Warna teks: Abu-abu tua (mudah dibaca) */
+    --bs-body-secondary-bg: #f5f5f5; /* Latar belakang seksi: Abu-abu sangat muda */
+
+    /* 3. Variabel Kustom Helper */
+    --custom-text-dark: #5d4037; /* Judul seksi menggunakan warna primer (Brown) */
+    --custom-card-shadow: 0 8px 20px rgba(0, 0, 0, 0.05); /* Bayangan halus & modern */
+    --custom-card-img-height: 220px; /* Tinggi seragam gambar card */
+    --custom-proyek-img-height: 350px; /* Tinggi seragam gambar proyek */
+
+    /* 4. Warna Brand Eksternal (WA, Tokopedia, dll) */
     --bs-whatsapp: #25d366;
     --bs-whatsapp-hover: #128c7e;
-
-    /* 2. Variabel Kustom Helper */
-    --custom-text-dark: #0d1245; /* Judul seksi yang gelap */
-    --custom-card-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
-    --custom-card-img-height: 220px;
-    --custom-proyek-img-height: 350px;
+    --bs-tokopedia: #03ac0e;
+    --bs-shopee: #ee4d2d;
 }
 
 /*
@@ -52,20 +63,26 @@
  * DEFINISI DARK MODE
  * =========================================
  *
- * Di sini, kita HANYA menimpa (override) variabel yang perlu diubah
- * saat mode gelap aktif.
+ * Menimpa (override) variabel di atas untuk mode gelap.
+ * Palet tetap didominasi coklat, tapi lebih terang agar kontras.
 */
 
 [data-bs-theme="dark"] {
     /* 1. Variabel Warna Brand (Dibuat lebih cerah agar kontras) */
-    --bs-primary: #5c6bc0;
-    --bs-primary-rgb: 92, 107, 192;
-    --bs-dark: #000; /* Footer jadi hitam pekat */
-    --bs-dark-rgb: 0, 0, 0;
+    --bs-primary: #a1887f; /* Coklat/Taupe terang */
+    --bs-primary-rgb: 161, 136, 127;
+    --bs-dark: #1b1b1b; /* Footer jadi hitam pekat */
+    --bs-dark-rgb: 27, 27, 27;
+    --bs-secondary: #795548;
 
-    /* 2. Variabel Kustom Helper */
-    --custom-text-dark: #e8eaf6; /* Judul seksi jadi biru muda */
-    --custom-card-shadow: 0 8px 20px rgba(255, 255, 255, 0.05); /* Shadow terang */
+    /* 2. Override Variabel Bootstrap Bawaan */
+    --bs-body-bg: #212121; /* Latar belakang: Abu-abu sangat gelap */
+    --bs-body-color: #e0e0e0; /* Warna teks: Putih gading */
+    --bs-body-secondary-bg: #333333; /* Latar belakang seksi: Abu-abu gelap */
+
+    /* 3. Variabel Kustom Helper */
+    --custom-text-dark: #d7ccc8; /* Judul seksi jadi coklat muda */
+    --custom-card-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 /*
@@ -74,10 +91,11 @@
  * =========================================
  *
  * Style di bawah ini sekarang menggunakan variabel di atas,
- * sehingga mereka otomatis beradaptasi dengan tema.
+ * sehingga mereka otomatis beradaptasi dengan tema (Light/Dark).
 */
 
 body {
+    /* Font 'Poppins' jadi font utama, dengan fallback standar */
     font-family:
         "Poppins",
         -apple-system,
@@ -87,12 +105,10 @@ body {
         Helvetica,
         Arial,
         sans-serif;
-    /* Bootstrap 5.3+ otomatis mengatur 'background-color' dan 'color'
-      berdasarkan [data-bs-theme], jadi kita tidak perlu set manual.
-    */
 }
 
 /* --- Helper Class Kustom --- */
+/* Kelas ini membuat teks (seperti judul) menggunakan warna primer kustom kita */
 .text-primary-dark {
     color: var(--custom-text-dark);
 }
@@ -101,17 +117,19 @@ body {
 .btn-primary {
     --bs-btn-bg: var(--bs-primary);
     --bs-btn-border-color: var(--bs-primary);
-    --bs-btn-hover-bg: #0d1245; /* Tetap gelap saat hover (di light) */
-    --bs-btn-hover-border-color: #0d1245;
-    padding: 10px 24px;
+    --bs-btn-hover-bg: var(--bs-dark); /* Saat hover, jadi coklat sangat gelap */
+    --bs-btn-hover-border-color: var(--bs-dark);
+    padding: 10px 24px; /* Padding lebih besar untuk B2B, terasa lebih 'premium' */
 }
 
+/* Kustomisasi hover tombol di dark mode */
 [data-bs-theme="dark"] .btn-primary {
-    --bs-btn-hover-bg: #e8eaf6; /* Jadi terang saat hover (di dark) */
-    --bs-btn-hover-border-color: #e8eaf6;
+    --bs-btn-hover-bg: #e0e0e0;
+    --bs-btn-hover-border-color: #e0e0e0;
     --bs-btn-hover-color: #000;
 }
 
+/* Tombol khusus WhatsApp */
 .btn-whatsapp {
     background-color: var(--bs-whatsapp);
     color: #fff;
@@ -120,7 +138,7 @@ body {
 .btn-whatsapp:hover {
     background-color: var(--bs-whatsapp-hover);
     color: #fff;
-    transform: translateY(-2px);
+    transform: translateY(-2px); /* Efek 'angkat' sedikit */
 }
 
 /* --- Navbar --- */
@@ -137,51 +155,55 @@ body {
 #theme-icon-dark {
     color: var(--bs-gray-600); /* Warna ikon non-aktif */
 }
-/* Warna ikon aktif akan di-handle oleh JS (menambah class .text-primary) */
+/* JS akan menambah kelas .text-primary ke ikon yang aktif */
 
-/* --- 3. Hero Section --- */
+/* --- Hero Section --- */
 .hero-section {
     min-height: 80vh;
+    /* Latar belakang gambar dengan overlay gelap agar teks putih terbaca */
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-        url("https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop");
+        url("https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format=fit=crop");
     background-size: cover;
     background-position: center;
 }
 
-/* --- 5. Divisi Produk (Cards) --- */
+/* --- Divisi Produk (Cards) --- */
 .card-hover {
     transition: all 0.3s ease;
 }
 .card-hover:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--custom-card-shadow) !important;
+    transform: translateY(-5px); /* Efek 'angkat' saat hover */
+    box-shadow: var(--custom-card-shadow) !important; /* Bayangan kustom */
 }
 
+/* Menyeragamkan tinggi gambar di card */
 .card-img-fixed {
     height: var(--custom-card-img-height);
-    object-fit: cover;
+    object-fit: cover; /* Mencegah gambar 'penyok' */
 }
 
-/* --- 7. Showcase Proyek (Cards) --- */
+/* --- Showcase Proyek (Cards) --- */
 .card-proyek {
-    overflow: hidden;
+    overflow: hidden; /* Penting untuk efek zoom gambar */
 }
 .card-proyek .card-img {
     height: var(--custom-proyek-img-height);
     object-fit: cover;
     transition: all 0.5s ease;
 }
+/* Overlay gradien di bawah gambar agar teks terbaca */
 .card-proyek .card-img-overlay {
     background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent 50%);
 }
+/* Efek zoom-in gambar saat hover */
 .card-proyek:hover .card-img {
     transform: scale(1.05);
 }
 
-/* --- 10. Footer --- */
+/* --- Footer --- */
 .footer a.nav-link:hover,
 .footer a.text-muted:hover {
-    color: #fff !important;
+    color: #fff !important; /* Link di footer jadi putih saat hover */
 }
 
 /*
@@ -194,7 +216,7 @@ body {
 .hero-keramik {
     min-height: 70vh;
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-        url("https://images.unsplash.com/photo-1581359874134-c79bb59f07f0?q=80&w=1740&auto=format&fit=crop");
+        url("https://images.unsplash.com/photo-1581359874134-c79bb59f07f0?q=80&w=1740&auto=format=fit=crop");
     background-size: cover;
     background-position: center;
 }
@@ -210,7 +232,6 @@ body {
     top: 10px;
     right: 10px;
     z-index: 10;
-
     background-color: rgba(255, 255, 255, 0.8);
     border: none;
     border-radius: 50%;
@@ -221,7 +242,6 @@ body {
     backdrop-filter: blur(5px);
     transition: all 0.2s ease;
 }
-
 .btn-save-look:hover {
     background-color: var(--bs-primary);
     color: #fff;
@@ -241,14 +261,9 @@ body {
     left: 0;
     right: 0;
     z-index: 999;
-
     background-color: var(--bs-body-bg); /* Otomatis adaptif di dark mode */
     border-top: 1px solid var(--bs-border-color);
     padding: 1rem;
-
-    /* Efek transisi masuk (opsional, butuh JS) */
-    /* transform: translateY(100%); */
-    /* transition: transform 0.3s ease-in-out; */
 }
 
 /* Untuk memberi jarak agar footer tidak tertutup bar */
@@ -262,20 +277,21 @@ body.page-keramik {
  * =========================================
 */
 
+/* Tombol ikon untuk Marketplace (Tokopedia, Shopee, dll) */
 .btn-icon-marketplace {
     text-decoration: none;
     transition: all 0.2s ease;
 }
 
-/* Memberi warna brand */
+/* Memberi warna brand (Gunakan variabel agar konsisten) */
 .btn-icon-marketplace.text-whatsapp {
     color: var(--bs-whatsapp);
 }
 .btn-icon-marketplace.text-tokopedia {
-    color: #03ac0e;
+    color: var(--bs-tokopedia);
 }
 .btn-icon-marketplace.text-shopee {
-    color: #ee4d2d;
+    color: var(--bs-shopee);
 }
 
 /* Efek hover */

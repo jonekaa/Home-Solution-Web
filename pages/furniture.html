@@ -10,14 +10,11 @@
             rel="stylesheet"
             integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
             crossorigin="anonymous" />
-
         <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
         <link
             href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap"
             rel="stylesheet" />
@@ -29,13 +26,6 @@
 
         <main>
             <section class="container py-4">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
-                        <li class="breadcrumb-item"><a href="#">Divisi Produk</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Furniture & Rumah Tangga</li>
-                    </ol>
-                </nav>
                 <h1 class="display-4 fw-bold text-primary-dark">Furniture & Rumah Tangga</h1>
                 <p class="lead text-muted">
                     Desain pilihan untuk hunian modern, dari kayu jati hingga rotan minimalis.
@@ -45,18 +35,14 @@
             <section class="py-4 bg-body-secondary">
                 <div class="container text-center">
                     <h5 class="mb-3">Belanja Mudah di Marketplace Favorit Anda:</h5>
-                    <a href="#" class="btn btn-marketplace btn-shopee me-2 mb-2"
+                    <a href="#" class="btn btn-outline-success me-2 mb-2"
                         ><i class="bi bi-whatsapp me-2"></i>WhatsApp</a
                     >
-                    <a href="#" class="btn btn-marketplace btn-shopee me-2 mb-2"
-                        ><i class="bi bi-shop me-2"></i>Shopee</a
-                    >
-                    <a href="#" class="btn btn-marketplace btn-tokopedia me-2 mb-2"
+                    <a href="#" class="btn btn-outline-danger me-2 mb-2"><i class="bi bi-shop me-2"></i>Shopee</a>
+                    <a href="#" class="btn btn-outline-success me-2 mb-2"
                         ><i class="bi bi-bag-fill me-2"></i>Tokopedia</a
                     >
-                    <a href="#" class="btn btn-marketplace btn-tiktok mb-2"
-                        ><i class="bi bi-tiktok me-2"></i>TikTok Shop</a
-                    >
+                    <a href="#" class="btn btn-outline-dark mb-2"><i class="bi bi-tiktok me-2"></i>TikTok Shop</a>
                 </div>
             </section>
 
@@ -86,16 +72,15 @@
                             <a
                                 href="javascript:void(0);"
                                 class="btn btn-outline-primary btn-kategori"
-                                data-filter="lemari"
-                                >Lemari</a
+                                data-filter="dekorasi"
+                                >Dekorasi</a
                             >
                         </div>
                     </div>
                     <div class="d-flex align-items-center">
                         <label for="sort-select" class="fw-semibold me-2">Urutkan:</label>
                         <select class="form-select" id="sort-select" style="width: 200px">
-                            <option selected>Terbaru</option>
-                            <option value="1">Terpopuler</option>
+                            <option value="terbaru" selected>Terbaru</option>
                             <option value="2">Harga Terendah</option>
                             <option value="3">Harga Tertinggi</option>
                         </select>
@@ -115,13 +100,7 @@
                     </div>
 
                     <nav aria-label="Page navigation" class="mt-5 d-flex justify-content-center">
-                        <ul class="pagination" id="pagination-container">
-                            <li class="page-item disabled"><a class="page-link" href="#">Sebelumnya</a></li>
-                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">Berikutnya</a></li>
-                        </ul>
+                        <ul class="pagination" id="pagination-container"></ul>
                     </nav>
                 </div>
             </section>
@@ -133,7 +112,13 @@
                         Kami melayani pengadaan B2B untuk furniture hotel, apartemen, kafe, dan proyek properti lainnya
                         di seluruh Indonesia.
                     </p>
-                    <a href="#" class="btn btn-primary btn-lg">Hubungi Tim Proyek Domestik</a>
+                    <a
+                        href="https://wa.me/6287775080483?text=Halo%2C%20saya%20dari%20perusahaan%20dan%20ingin%20bertanya%20tentang%20pengadaan%20furniture%20B2B."
+                        class="btn btn-primary btn-lg"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Hubungi Tim Proyek B2B</a
+                    >
                 </div>
             </section>
         </main>
