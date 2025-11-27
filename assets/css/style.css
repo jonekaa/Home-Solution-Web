@@ -299,3 +299,172 @@ body.page-keramik {
     opacity: 0.7;
     transform: translateY(-2px);
 }
+
+/*
+ * =========================================
+ * NETFLIX-STYLE SWIPER CAROUSEL
+ * =========================================
+ */
+
+/* Swiper Container - Netflix style with overflow visible for side cards */
+.material-swiper {
+    padding: 50px 0 70px 0; /* Top & bottom padding for navigation and pagination */
+    overflow: visible !important; /* Show partial cards on sides */
+    position: relative;
+}
+
+/* Swiper Wrapper */
+.material-swiper .swiper-wrapper {
+    transition-timing-function: ease-in-out;
+    align-items: center; /* Center slides vertically */
+}
+
+/* Swiper Slide - Netflix card style */
+.material-swiper .swiper-slide {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: auto; /* Let content determine height */
+}
+
+/* Make cards slightly transparent when not active (on mobile) */
+.material-swiper .swiper-slide:not(.swiper-slide-active) {
+    opacity: 0.7;
+}
+
+.material-swiper .swiper-slide.swiper-slide-active {
+    opacity: 1;
+    z-index: 2;
+}
+
+/* Card inside slide - with Netflix-style hover effect */
+.material-swiper .swiper-slide .card {
+    margin: 10px 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Netflix-style hover effect - card grows and lifts */
+.material-swiper .swiper-slide .card:hover {
+    transform: scale(1.08) translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+    z-index: 10;
+}
+
+/* Custom Navigation Buttons - Netflix style */
+.material-swiper .swiper-button-prev,
+.material-swiper .swiper-button-next {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    color: #fff;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.material-swiper .swiper-button-prev:after,
+.material-swiper .swiper-button-next:after {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.material-swiper .swiper-button-prev:hover,
+.material-swiper .swiper-button-next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    transform: scale(1.1);
+}
+
+/* Position the navigation buttons */
+.material-swiper .swiper-button-prev {
+    left: 10px;
+}
+
+.material-swiper .swiper-button-next {
+    right: 10px;
+}
+
+/* Dark mode adjustments for navigation */
+[data-bs-theme="dark"] .material-swiper .swiper-button-prev,
+[data-bs-theme="dark"] .material-swiper .swiper-button-next {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+[data-bs-theme="dark"] .material-swiper .swiper-button-prev:hover,
+[data-bs-theme="dark"] .material-swiper .swiper-button-next:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Custom Pagination - Netflix style dots */
+.material-swiper .swiper-pagination {
+    bottom: 20px !important;
+}
+
+.material-swiper .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.5);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.material-swiper .swiper-pagination-bullet-active {
+    background-color: var(--bs-primary);
+    width: 24px;
+    border-radius: 4px;
+    opacity: 1;
+}
+
+/* Dark mode pagination */
+[data-bs-theme="dark"] .material-swiper .swiper-pagination-bullet {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+[data-bs-theme="dark"] .material-swiper .swiper-pagination-bullet-active {
+    background-color: var(--bs-primary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .material-swiper {
+        padding: 40px 0 60px 0;
+    }
+    
+    .material-swiper .swiper-button-prev,
+    .material-swiper .swiper-button-next {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .material-swiper .swiper-button-prev:after,
+    .material-swiper .swiper-button-next:after {
+        font-size: 16px;
+    }
+}
+
+/* Card image optimization for swiper */
+.material-swiper .card-img-top {
+    border-radius: 8px 8px 0 0;
+    transition: transform 0.4s ease;
+}
+
+.material-swiper .card:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+/* Smooth card body transition */
+.material-swiper .card-body {
+    transition: all 0.3s ease;
+}
+
+/* Button in card - Netflix style */
+.material-swiper .card .btn {
+    transition: all 0.3s ease;
+}
+
+.material-swiper .card:hover .btn-outline-primary {
+    background-color: var(--bs-primary);
+    color: #fff;
+    border-color: var(--bs-primary);
+}
+

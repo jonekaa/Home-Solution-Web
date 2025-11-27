@@ -1,5 +1,5 @@
 /* Mockup Website/assets/js/main.js */
-/* VERSI PERBAIKAN (Syntax Error & Path Rewriter diperbaiki) */
+/* VERSI PERBAIKAN - Complete working version */
 
 /**
  * Fungsi untuk mengaktifkan theme switcher (Light/Dark Mode)
@@ -58,53 +58,80 @@ function setupThemeSwitcher() {
 }
 
 /**
- * Memuat komponen (header/footer) dan memperbaiki path-nya.
- * @param {string} id - ID elemen placeholder (misal: "header-placeholder")
- * @param {string} url - Path ke file template (misal: "_header.html")
- * @param {string} pathPrefix - Prefix (misal: "../")
+ * Fungsi untuk memuat komponen HTML (header/footer)
+ * Menggunakan fetch API
  */
-async function loadComponent(id, url, pathPrefix) {
+async function loadComponent(placeholderId, componentPath, pathPrefix = "") {
+    const fullPath = pathPrefix + componentPath;
+    const placeholder = document.getElementById(placeholderId);
+
+    if (!placeholder) {
+        console.error(`Placeholder ${placeholderId} tidak ditemukan`);
+        return;
+    }
+
     try {
-        // 1. Muat template
-        const response = await fetch(pathPrefix + url);
+        const response = await fetch(fullPath);
         if (!response.ok) {
-            throw new Error(`Gagal memuat ${pathPrefix + url}: ${response.statusText}`);
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
-        let data = await response.text(); // 2. Ambil HTML sebagai teks
-
-        // 3. PERBAIKAN DINAMIS (PATH REWRITER YANG SUDAH DIPERBAIKI):
-        if (pathPrefix) {
-            // pathPrefix adalah "../"
-            // Aturan 1: Perbaiki link ke root (misal: index.html)
-            // Mengubah href="index.html" -> href="../index.html"
-            data = data.replace(/(href|src)="(index\.html)"/g, `$1="${pathPrefix}$2"`);
-
-            // Aturan 2: Perbaiki link antar halaman di folder /pages
-            // Mengubah href="pages/kaca.html" -> href="kaca.html"
-            data = data.replace(/(href|src)="pages\/([^"]*)"/g, `$1="$2"`);
-        }
-
-        // 4. Suntikkan HTML yang sudah diperbaiki
-        document.getElementById(id).innerHTML = data;
+        const html = await response.text();
+        placeholder.innerHTML = html;
     } catch (error) {
-        console.error(error);
-        document.getElementById(id).innerHTML = `<p class="text-danger text-center">Gagal memuat ${id}.</p>`;
+        console.error(`Error loading ${fullPath}:`, error);
+        // Show error message if loading fails
+        placeholder.innerHTML = `<div class="alert alert-warning m-3">Unable to load ${componentPath}. Please run this site on a local web server (e.g., python -m http.server or npx http-server).</div>`;
     }
 }
 
-// Event Listener utama
+/**
+ * Fungsi untuk memperbaiki path navigasi setelah header dimuat
+ */
+function fixNavigationPaths(pathPrefix) {
+    // Fix logo link to home
+    const logoLink = document.querySelector('.navbar-brand');
+    if (logoLink) {
+        logoLink.href = pathPrefix ? `${pathPrefix}index.html` : 'index.html';
+        if (!pathPrefix) {
+            logoLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+    }
+
+    // Fix all navigation links that start with "pages/"
+    const allLinks = document.querySelectorAll('.navbar a[href^="pages/"]');
+    allLinks.forEach(link => {
+        const originalHref = link.getAttribute('href');
+        if (pathPrefix) {
+            // We're in a pages/ subdirectory, so remove the "pages/" prefix
+            link.href = originalHref.replace('pages/', '');
+        }
+        // If no pathPrefix, we're on the root, so links stay as "pages/..."
+    });
+}
+
+/**
+ * Inisialisasi aplikasi saat DOM sudah siap
+ */
 document.addEventListener("DOMContentLoaded", async function () {
-    // Tentukan prefix berdasarkan lokasi file HTML
+    // Deteksi apakah kita di halaman utama atau di folder pages
     const pathPrefix = window.location.pathname.includes("/pages/") ? "../" : "";
 
-    // Muat header dan footer secara bersamaan
-    await Promise.all([
-        loadComponent("header-placeholder", "_header.html", pathPrefix),
-        loadComponent("footer-placeholder", "_footer.html", pathPrefix)
-    ]);
+    try {
+        // Muat header dan footer secara bersamaan
+        await Promise.all([
+            loadComponent("header-placeholder", "_header.html", pathPrefix),
+            loadComponent("footer-placeholder", "_footer.html", pathPrefix)
+        ]);
 
-    // Jalankan theme switcher SETELAH header dimuat
-    setupThemeSwitcher();
+        // Fix navigation paths
+        fixNavigationPaths(pathPrefix);
+
+        // Jalankan theme switcher SETELAH header dimuat
+        setupThemeSwitcher();
+    } catch (error) {
+        console.error("Error loading components:", error);
+    }
 });
-
-/* TIDAK ADA LAGI '}' EKSTRA DI SINI */

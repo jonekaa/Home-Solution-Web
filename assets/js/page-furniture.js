@@ -108,9 +108,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 ${badgeHTML}
                 <img src="${product.gambar}" class="card-img-top card-img-fixed" alt="${product.nama}">
                 <div class="card-body d-flex flex-column">
-                    <h5 class="card-title fs-6 fw-semibold text-primary-dark">${product.nama}</h5>
-                    <p class="card-text fw-bold text-primary fs-5 mb-3">Rp ${formattedPrice}</p>
-
+                    <h5 class="card-title fs-6 fw-semibold">${product.nama}</h5>
+                    <p class="card-text fw-bold fs-5 mb-3">Rp ${formattedPrice}</p>
                     <div class="mt-auto"> <small class="text-muted d-block mb-2">Beli di:</small>
                         <div class="d-flex justify-content-start gap-3">
                             <a href="javascript:void(0);" class="btn-icon-marketplace btn-tanya-furniture text-whatsapp fs-3" title="Tanya via WhatsApp">

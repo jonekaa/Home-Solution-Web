@@ -1,21 +1,23 @@
 <!doctype html>
 <html lang="id" data-bs-theme="light">
+
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Kaca & Aluminium - [Nama Bisnis Anda]</title>
 
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" ... />
-        <link
-            rel="stylesheet"
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+            crossorigin="anonymous" />
+        <link rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap"
-            rel="stylesheet" />
         <link rel="stylesheet" href="../assets/css/style.css" />
     </head>
+
     <body>
         <header id="header-placeholder" class="sticky-top"></header>
 
@@ -36,34 +38,27 @@
                                 <i class="bi bi-patch-check-fill text-primary"></i> Konsultasi Gratis
                             </p>
                         </div>
-
                         <div class="col-lg-6">
                             <div class="card shadow-lg border-0">
                                 <div class="card-body p-4 p-md-5">
                                     <h3 class="fw-bold text-center mb-4">Mulai Estimasi Proyek Anda</h3>
-
                                     <form id="wizard-form">
                                         <div class="mb-3">
-                                            <label for="wizard-tipe-proyek" class="form-label fw-semibold"
-                                                >1. Apa Kebutuhan Proyek Anda?</label
-                                            >
+                                            <label for="wizard-tipe-proyek" class="form-label fw-semibold">1. Apa
+                                                Kebutuhan Proyek Anda?</label>
                                             <select class="form-select form-select-lg" id="wizard-tipe-proyek">
                                                 <option value="" selected>Pilih Tipe Proyek...</option>
-                                                <option value="Jendela Rumah">Jendela Rumah</option>
-                                                <option value="Pintu Kaca">Pintu Kaca</option>
-                                                <option value="Partisi Kantor">Partisi Kantor</option>
-                                                <option value="Shower Box Kamar Mandi">Shower Box Kamar Mandi</option>
-                                                <option value="Railing Kaca">Railing Kaca (Tangga/Balkon)</option>
-                                                <option value="Kanopi Kaca">Kanopi Kaca</option>
-                                                <option value="Fasad Gedung">Fasad Gedung</option>
-                                                <option value="Lainnya">Lainnya</option>
+                                                <option value="shower">Shower Box Kamar Mandi</option>
+                                                <option value="partisi">Partisi Kantor</option>
+                                                <option value="kanopi">Kanopi Kaca</option>
+                                                <option value="railing">Railing Kaca (Tangga/Balkon)</option>
+                                                <option value="jendela">Jendela & Pintu</option>
+                                                <option value="fasad">Fasad Gedung</option>
                                             </select>
                                         </div>
-
                                         <div class="mb-3">
-                                            <label for="wizard-tipe-kaca" class="form-label fw-semibold"
-                                                >2. Pilih Tipe Kaca</label
-                                            >
+                                            <label for="wizard-tipe-kaca" class="form-label fw-semibold">2. Pilih Tipe
+                                                Kaca</label>
                                             <select class="form-select form-select-lg" id="wizard-tipe-kaca">
                                                 <option value="" selected>Pilih Tipe Kaca...</option>
                                                 <option value="Kaca Polos (Clear)">Kaca Polos (Clear)</option>
@@ -74,29 +69,20 @@
                                                 </option>
                                             </select>
                                         </div>
-
                                         <div class="mb-3">
                                             <label class="form-label fw-semibold">3. Estimasi Ukuran (Opsional)</label>
                                             <div class="input-group">
-                                                <input
-                                                    type="number"
-                                                    class="form-control"
-                                                    placeholder="Panjang (cm)"
+                                                <input type="number" class="form-control" placeholder="Panjang (cm)"
                                                     id="wizard-panjang" />
                                                 <span class="input-group-text">x</span>
-                                                <input
-                                                    type="number"
-                                                    class="form-control"
-                                                    placeholder="Tinggi (cm)"
+                                                <input type="number" class="form-control" placeholder="Tinggi (cm)"
                                                     id="wizard-tinggi" />
                                             </div>
-                                            <div
-                                                id="wizard-hasil-luas"
-                                                class="form-text mt-2 fw-bold text-primary"></div>
+                                            <div id="wizard-hasil-luas" class="form-text mt-2 fw-bold text-primary">
+                                            </div>
                                         </div>
-
                                         <div class="d-grid mt-4">
-                                            <button type="submit" class="btn btn-lg btn-whatsapp fw-bold">
+                                            <button type="submit" class="btn btn-lg btn-whatsapp btn-pulse fw-bold">
                                                 <i class="bi bi-whatsapp me-2"></i>Dapatkan Penawaran via WhatsApp
                                             </button>
                                         </div>
@@ -108,30 +94,45 @@
                 </div>
             </section>
 
-            <section class="py-5">
+            <section class="py-5" id="inspirasi-gallery-section">
                 <div class="container">
-                    <h2 class="text-center mb-5 fw-bold text-primary-dark">Inspirasi & Aplikasi Kaca</h2>
-                    <div class="row g-4">
-                        <div class="col-lg-3 col-md-6">
+                    <h2 class="text-center mb-4 fw-bold text-primary-dark">Inspirasi & Aplikasi Kaca</h2>
+                    <div class="text-center mb-5" id="inspirasi-filter-buttons">
+                        <div class="btn-group" role="group" aria-label="Filter Inspirasi">
+                            <button type="button" class="btn btn-outline-primary active btn-filter" data-filter="semua">
+                                Semua
+                            </button>
+                            <button type="button" class="btn btn-outline-primary btn-filter" data-filter="shower">
+                                Shower Box
+                            </button>
+                            <button type="button" class="btn btn-outline-primary btn-filter" data-filter="partisi">
+                                Partisi Kantor
+                            </button>
+                            <button type="button" class="btn btn-outline-primary btn-filter" data-filter="kanopi">
+                                Kanopi
+                            </button>
+                            <button type="button" class="btn btn-outline-primary btn-filter" data-filter="railing">
+                                Railing
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row g-4" id="inspirasi-grid">
+                        <div class="col-lg-4 col-md-6 gallery-item" data-kategori="shower">
                             <div class="card h-100 shadow-sm border-0 card-hover">
-                                <img
-                                    src="https://images.unsplash.com/photo-1598002621427-a10cda757685?q=80&w=400&auto=format&fit=crop"
-                                    class="card-img-top card-img-fixed"
-                                    alt="Shower Box Kaca" />
+                                <img src="https://images.unsplash.com/photo-1598002621427-a10cda757685?q=80&w=400&auto=format&fit=crop"
+                                    class="card-img-top card-img-fixed" alt="Shower Box Kaca" />
                                 <div class="card-body">
-                                    <h5 class="fw-semibold text-primary-dark">Shower Box Kamar Mandi</h5>
+                                    <h5 class="fw-semibold text-primary-dark">Shower Box Kaca Tempered</h5>
                                     <p class="text-muted small">
                                         Memberi kesan bersih, minimalis, dan modern untuk kamar mandi Anda.
                                     </p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6">
+                        <div class="col-lg-4 col-md-6 gallery-item" data-kategori="partisi">
                             <div class="card h-100 shadow-sm border-0 card-hover">
-                                <img
-                                    src="https://images.unsplash.com/photo-1599800230232-920f2b340003?q=80&w=400&auto=format&fit=crop"
-                                    class="card-img-top card-img-fixed"
-                                    alt="Partisi Kaca Kantor" />
+                                <img src="https://images.unsplash.com/photo-1599800230232-920f2b340003?q=80&w=400&auto=format&fit=crop"
+                                    class="card-img-top card-img-fixed" alt="Partisi Kaca Kantor" />
                                 <div class="card-body">
                                     <h5 class="fw-semibold text-primary-dark">Partisi Kaca Kantor</h5>
                                     <p class="text-muted small">
@@ -140,70 +141,51 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6">
+                        <div class="col-lg-4 col-md-6 gallery-item" data-kategori="kanopi">
                             <div class="card h-100 shadow-sm border-0 card-hover">
-                                <img
-                                    src="https://images.unsplash.com/photo-1621245708237-83d57aca70d3?q=80&w=400&auto=format&fit=crop"
-                                    class="card-img-top card-img-fixed"
-                                    alt="Kanopi Kaca" />
+                                <img src="https://images.unsplash.com/photo-1621245708237-83d57aca70d3?q=80&w=400&auto=format&fit=crop"
+                                    class="card-img-top card-img-fixed" alt="Kanopi Kaca" />
                                 <div class="card-body">
-                                    <h5 class="fw-semibold text-primary-dark">Kanopi Kaca</h5>
+                                    <h5 class="fw-semibold text-primary-dark">Kanopi Kaca Laminated</h5>
                                     <p class="text-muted small">
-                                        Perlindungan dari cuaca dengan desain estetik yang mewah (umumnya Kaca
-                                        Laminated).
+                                        Perlindungan dari cuaca dengan desain estetik yang mewah (Kaca Laminated).
                                     </p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6">
+                        <div class="col-lg-4 col-md-6 gallery-item" data-kategori="railing">
                             <div class="card h-100 shadow-sm border-0 card-hover">
-                                <img
-                                    src="https://images.unsplash.com/photo-1556742044-3c52d6e88c62?q=80&w=400&auto=format&fit=crop"
-                                    class="card-img-top card-img-fixed"
-                                    alt="Railing Tangga Kaca" />
+                                <img src="https://images.unsplash.com/photo-1556742044-3c52d6e88c62?q=80&w=400&auto=format&fit=crop"
+                                    class="card-img-top card-img-fixed" alt="Railing Tangga Kaca" />
                                 <div class="card-body">
                                     <h5 class="fw-semibold text-primary-dark">Railing Kaca Tangga & Balkon</h5>
                                     <p class="text-muted small">
-                                        Memberikan keamanan (safety) dengan tampilan modern tanpa menghalangi pandangan.
+                                        Keamanan (safety) dengan tampilan modern tanpa menghalangi pandangan.
                                     </p>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="py-5 bg-body-secondary">
-                <div class="container">
-                    <h2 class="text-center mb-5 fw-bold text-primary-dark">Portofolio Proyek Kami</h2>
-                    <div class="row g-4">
-                        <div class="col-md-6">
-                            <div class="card border-0 shadow-sm card-proyek">
-                                <img
-                                    src="https://images.unsplash.com/photo-1572093370669-3122b102558f?q=80&w=800&auto=format&fit=crop"
-                                    class="card-img"
-                                    alt="Fasad Gedung" />
-                                <div class="card-img-overlay d-flex flex-column justify-content-end p-4">
-                                    <h3 class="card-title fs-4 fw-bold">Fasad Gedung Perkantoran (Tempered)</h3>
-                                    <p class="card-text">Lokasi: Jakarta Selatan</p>
+                        <div class="col-lg-4 col-md-6 gallery-item" data-kategori="shower">
+                            <div class="card h-100 shadow-sm border-0 card-hover">
+                                <img src="https://images.unsplash.com/photo-1618221644133-d3c8fba56f6b?q=80&w=400&auto=format&fit=crop"
+                                    class="card-img-top card-img-fixed" alt="Shower Box Hitam" />
+                                <div class="card-body">
+                                    <h5 class="fw-semibold text-primary-dark">Shower Box Industrial (Kusen Hitam)</h5>
+                                    <p class="text-muted small">Desain industrial minimalis dengan kusen aluminium
+                                        hitam.</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="card border-0 shadow-sm card-proyek">
-                                <img
-                                    src="https://images.unsplash.com/photo-1600211830935-23c563b7e73d?q=80&w=800&auto=format&fit=crop"
-                                    class="card-img"
-                                    alt="Partisi Kantor" />
-                                <div class="card-img-overlay d-flex flex-column justify-content-end p-4">
-                                    <h3 class="card-title fs-4 fw-bold">Partisi Kantor Minimalis (Laminated)</h3>
-                                    <p class="card-text">Lokasi: Surabaya</p>
+                        <div class="col-lg-4 col-md-6 gallery-item" data-kategori="partisi">
+                            <div class="card h-100 shadow-sm border-0 card-hover">
+                                <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=400&auto=format&fit=crop"
+                                    class="card-img-top card-img-fixed" alt="Partisi Ruang Meeting" />
+                                <div class="card-body">
+                                    <h5 class="fw-semibold text-primary-dark">Partisi Ruang Meeting (Peredam Suara)</h5>
+                                    <p class="text-muted small">Menggunakan kaca double-glazing untuk privasi suara.</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="text-center mt-5">
-                        <a href="#" class="btn btn-outline-primary btn-lg">Lihat Semua Proyek</a>
                     </div>
                 </div>
             </section>
@@ -212,10 +194,8 @@
                 <div class="container">
                     <div class="row align-items-center g-5">
                         <div class="col-lg-6">
-                            <img
-                                src="https://images.unsplash.com/photo-1554900741-d0d62d057758?q=80&w=800&auto=format&fit=crop"
-                                class="img-fluid rounded shadow-lg"
-                                alt="Pekerja memasang kaca" />
+                            <img src="https://images.unsplash.com/photo-1554900741-d0d62d057758?q=80&w=800&auto-format=fit=crop"
+                                class="img-fluid rounded shadow-lg" alt="Pekerja memasang kaca" />
                         </div>
                         <div class="col-lg-6">
                             <h2 class="fw-bold text-primary-dark mb-4">Kenapa Memilih Layanan Kaca Kami?</h2>
@@ -253,97 +233,161 @@
                 </div>
             </section>
 
-            <section class="py-5 bg-body-secondary">
+            <section class="py-5 bg-body-secondary" id="material-section">
                 <div class="container">
-                    <h2 class="text-center mb-5 fw-bold text-primary-dark">Jelajahi Material Kami</h2>
-                    <div class="row g-4">
-                        <div class="col-lg-6">
-                            <h3 class="text-primary-dark mb-3">Jenis Kaca</h3>
-                            <div class="list-group">
-                                <a
-                                    href="#"
-                                    class="list-group-item list-group-item-action"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#modalKacaTempered">
-                                    <h5 class="mb-1 fw-semibold">Kaca Tempered</h5>
-                                    <p class="mb-1 text-muted">
-                                        Kaca dengan kekuatan 5x lipat, ideal untuk pintu dan area yang rawan benturan.
-                                    </p>
-                                </a>
-                                <a
-                                    href="#"
-                                    class="list-group-item list-group-item-action"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#modalKacaLaminated">
-                                    <h5 class="mb-1 fw-semibold">Kaca Laminated</h5>
-                                    <p class="mb-1 text-muted">
-                                        Aman dan tidak akan pecah berhamburan. Cocok untuk keamanan (anti-maling) dan
-                                        kanopi.
-                                    </p>
-                                </a>
-                                <a
-                                    href="#"
-                                    class="list-group-item list-group-item-action"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#modalKacaDoubleGlazing">
-                                    <h5 class="mb-1 fw-semibold">Kaca Double Glazing</h5>
-                                    <p class="mb-1 text-muted">
-                                        Kedap suara dan hemat energi. Pilihan terbaik untuk ruang rapat dan kamar tidur.
-                                    </p>
-                                </a>
+                    <h2 class="text-center fw-bold text-primary-dark mb-5">Jelajahi Material Kami</h2>
+                    <div class="swiper material-swiper">
+                        <div class="swiper-wrapper">
+
+                            <div class="swiper-slide">
+                                <div class="card h-100 shadow-sm border-0 card-hover">
+                                    <img src="https://images.unsplash.com/photo-1604200188039-23c89379374b?q=80&w=400&auto=format&fit=crop"
+                                        class="card-img-top card-img-fixed" alt="Kaca Tempered">
+                                    <div class="card-body">
+                                        <h5 class="fw-semibold text-primary-dark">Kaca Tempered</h5>
+                                        <p class="text-muted small">Kekuatan 5x lipat, pecahannya aman (biji
+                                            jagung).
+                                        </p>
+                                    </div>
+                                    <div class="card-footer bg-transparent border-0 pb-3">
+                                        <a href="#" class="btn btn-outline-primary w-100" data-bs-toggle="modal"
+                                            data-bs-target="#modalKacaTempered">
+                                            Lihat Detail
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="card h-100 shadow-sm border-0 card-hover">
+                                    <img src="https://images.unsplash.com/photo-1604200188039-23c89379374b?q=80&w=400&auto=format&fit=crop"
+                                        class="card-img-top card-img-fixed" alt="Kaca Tempered">
+                                    <div class="card-body">
+                                        <h5 class="fw-semibold text-primary-dark">Kaca Tempered 2</h5>
+                                        <p class="text-muted small">Kekuatan 5x lipat, pecahannya aman (biji
+                                            jagung).
+                                        </p>
+                                    </div>
+                                    <div class="card-footer bg-transparent border-0 pb-3">
+                                        <a href="#" class="btn btn-outline-primary w-100" data-bs-toggle="modal"
+                                            data-bs-target="#modalKacaTempered">
+                                            Lihat Detail
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="card h-100 shadow-sm border-0 card-hover">
+                                    <img src="https://images.unsplash.com/photo-1604200188039-23c89379374b?q=80&w=400&auto=format&fit=crop"
+                                        class="card-img-top card-img-fixed" alt="Kaca Tempered">
+                                    <div class="card-body">
+                                        <h5 class="fw-semibold text-primary-dark">Kaca Tempered 3</h5>
+                                        <p class="text-muted small">Kekuatan 5x lipat, pecahannya aman (biji
+                                            jagung).
+                                        </p>
+                                    </div>
+                                    <div class="card-footer bg-transparent border-0 pb-3">
+                                        <a href="#" class="btn btn-outline-primary w-100" data-bs-toggle="modal"
+                                            data-bs-target="#modalKacaTempered">
+                                            Lihat Detail
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="card h-100 shadow-sm border-0 card-hover">
+                                    <img src="https://images.unsplash.com/photo-1604200188039-23c89379374b?q=80&w=400&auto=format&fit=crop"
+                                        class="card-img-top card-img-fixed" alt="Kaca Tempered">
+                                    <div class="card-body">
+                                        <h5 class="fw-semibold text-primary-dark">Kaca Tempered 4</h5>
+                                        <p class="text-muted small">Kekuatan 5x lipat, pecahannya aman (biji
+                                            jagung).
+                                        </p>
+                                    </div>
+                                    <div class="card-footer bg-transparent border-0 pb-3">
+                                        <a href="#" class="btn btn-outline-primary w-100" data-bs-toggle="modal"
+                                            data-bs-target="#modalKacaTempered">
+                                            Lihat Detail
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="card h-100 shadow-sm border-0 card-hover">
+                                    <img src="https://images.unsplash.com/photo-1604200188039-23c89379374b?q=80&w=400&auto=format&fit=crop"
+                                        class="card-img-top card-img-fixed" alt="Kaca Tempered">
+                                    <div class="card-body">
+                                        <h5 class="fw-semibold text-primary-dark">Kaca Tempered 5</h5>
+                                        <p class="text-muted small">Kekuatan 5x lipat, pecahannya aman (biji
+                                            jagung).
+                                        </p>
+                                    </div>
+                                    <div class="card-footer bg-transparent border-0 pb-3">
+                                        <a href="#" class="btn btn-outline-primary w-100" data-bs-toggle="modal"
+                                            data-bs-target="#modalKacaTempered">
+                                            Lihat Detail
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <h3 class="text-primary-dark mb-3">Jenis Aluminium</h3>
-                            <div class="list-group">
-                                <a
-                                    href="#"
-                                    class="list-group-item list-group-item-action"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#modalKusenAluminium">
-                                    <h5 class="mb-1 fw-semibold">Kusen Aluminium (Berbagai Warna)</h5>
-                                    <p class="mb-1 text-muted">
-                                        Anti rayap, tahan cuaca, dan tersedia dalam finishing (Putih, Hitam, Coklat,
-                                        Serat Kayu).
-                                    </p>
-                                </a>
-                                <a
-                                    href="#"
-                                    class="list-group-item list-group-item-action"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#modalACP">
-                                    <h5 class="mb-1 fw-semibold">Aluminium Composite Panel (ACP)</h5>
-                                    <p class="mb-1 text-muted">
-                                        Material fasad modern yang ringan, kuat, dan memiliki banyak pilihan warna.
-                                    </p>
-                                </a>
-                            </div>
-                        </div>
+
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
                     </div>
                 </div>
             </section>
 
             <section class="py-5">
                 <div class="container">
-                    <h2 class="text-center mb-5 fw-bold text-primary-dark">Tanya Jawab (FAQ)</h2>
+                    <h2 class="text-center mb-5 fw-bold text-primary-dark">Portofolio Proyek Kami</h2>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="card border-0 shadow-sm card-proyek">
+                                <img src="https://images.unsplash.com/photo-1572093370669-3122b102558f?q=80&w=800&auto=format&fit=crop"
+                                    class="card-img" alt="Fasad Gedung" />
+                                <div class="card-img-overlay d-flex flex-column justify-content-end p-4">
+                                    <h3 class="card-title fs-4 fw-bold">Fasad Gedung Perkantoran (Tempered)</h3>
+                                    <p class="card-text">Lokasi: Jakarta Selatan</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card border-0 shadow-sm card-proyek">
+                                <img src="https://images.unsplash.com/photo-1600211830935-23c563b7e73d?q=80&w=800&auto=format&fit=crop"
+                                    class="card-img" alt="Partisi Kantor" />
+                                <div class="card-img-overlay d-flex flex-column justify-content-end p-4">
+                                    <h3 class="card-title fs-4 fw-bold">Partisi Kantor Minimalis (Laminated)</h3>
+                                    <p class="card-text">Lokasi: Surabaya</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-5">
+                        <a href="#" class="btn btn-outline-primary btn-lg">Lihat Semua Proyek</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-5 bg-body-secondary" id="faq-section">
+                <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-lg-8">
+                            <h2 class="text-center fw-bold text-primary-dark mb-4">Tanya Jawab (FAQ)</h2>
                             <div class="accordion" id="faqAccordion">
                                 <div class="accordion-item shadow-sm mb-3">
                                     <h2 class="accordion-header">
-                                        <button
-                                            class="accordion-button fw-semibold"
-                                            type="button"
-                                            data-bs-toggle="collapse"
-                                            data-bs-target="#collapseOne"
-                                            aria-expanded="true"
+                                        <button class="accordion-button fw-semibold" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
                                             aria-controls="collapseOne">
                                             Apa bedanya Kaca Tempered dan Kaca Laminated?
                                         </button>
                                     </h2>
-                                    <div
-                                        id="collapseOne"
-                                        class="accordion-collapse collapse show"
+                                    <div id="collapseOne" class="accordion-collapse collapse show"
                                         data-bs-parent="#faqAccordion">
                                         <div class="accordion-body text-muted">
                                             <strong>Kaca Tempered</strong> adalah kaca yang diperkuat (5x lebih kuat)
@@ -358,48 +402,19 @@
                                 </div>
                                 <div class="accordion-item shadow-sm mb-3">
                                     <h2 class="accordion-header">
-                                        <button
-                                            class="accordion-button collapsed fw-semibold"
-                                            type="button"
-                                            data-bs-toggle="collapse"
-                                            data-bs-target="#collapseTwo"
-                                            aria-expanded="false"
-                                            aria-controls="collapseTwo">
+                                        <button class="accordion-button collapsed fw-semibold" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                            aria-expanded="false" aria-controls="collapseTwo">
                                             Berapa lama proses pengerjaan dan pemasangan?
                                         </button>
                                     </h2>
-                                    <div
-                                        id="collapseTwo"
-                                        class="accordion-collapse collapse"
+                                    <div id="collapseTwo" class="accordion-collapse collapse"
                                         data-bs-parent="#faqAccordion">
                                         <div class="accordion-body text-muted">
                                             Waktu pengerjaan bervariasi tergantung volume dan tingkat kesulitan. Untuk
                                             proses *tempering* atau *laminating* kaca custom biasanya memakan waktu
                                             sekitar 7-14 hari kerja. Pemasangan di lokasi biasanya 1-3 hari untuk proyek
                                             skala rumah.
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item shadow-sm mb-3">
-                                    <h2 class="accordion-header">
-                                        <button
-                                            class="accordion-button collapsed fw-semibold"
-                                            type="button"
-                                            data-bs-toggle="collapse"
-                                            data-bs-target="#collapseThree"
-                                            aria-expanded="false"
-                                            aria-controls="collapseThree">
-                                            Apakah saya bisa custom ukuran dan bentuk?
-                                        </button>
-                                    </h2>
-                                    <div
-                                        id="collapseThree"
-                                        class="accordion-collapse collapse"
-                                        data-bs-parent="#faqAccordion">
-                                        <div class="accordion-body text-muted">
-                                            Ya, kami melayani full custom. Tim kami akan melakukan survei ke lokasi Anda
-                                            untuk mengukur secara presisi sebelum kaca diproses, untuk memastikan
-                                            semuanya pas dan sesuai dengan desain yang Anda inginkan.
                                         </div>
                                     </div>
                                 </div>
@@ -415,11 +430,8 @@
                     <p class="fs-4 lead my-4 mx-auto" style="max-width: 700px">
                         Dapatkan harga spesial B2B dan katalog lengkap material kami untuk kebutuhan proyek skala besar.
                     </p>
-                    <a
-                        href="https://wa.me/6287775080483?text=Halo%2C%20saya%20kontraktor%2Farsitek%20dan%20mau%20tanya%20harga%20proyek%20kaca."
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="btn btn-lg btn-light fw-bold text-primary">
+                    <a href="https://wa.me/6287775080483?text=Halo%2C%20saya%20kontraktor%2Farsitek%20dan%20mau%20tanya%20harga%20proyek%20kaca."
+                        target="_blank" rel="noopener noreferrer" class="btn btn-lg btn-light fw-bold text-primary">
                         <i class="bi bi-person-workspace me-2"></i>Chat dengan Tim Proyek
                     </a>
                 </div>
@@ -428,11 +440,7 @@
 
         <footer id="footer-placeholder"></footer>
 
-        <div
-            class="modal fade"
-            id="modalKacaTempered"
-            tabindex="-1"
-            aria-labelledby="modalKacaTemperedLabel"
+        <div class="modal fade" id="modalKacaTempered" tabindex="-1" aria-labelledby="modalKacaTemperedLabel"
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
@@ -443,10 +451,8 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <img
-                            src="https://images.unsplash.com/photo-1604200188039-23c89379374b?q=80&w=800&auto=format&fit=crop"
-                            class="img-fluid rounded mb-3"
-                            alt="Kaca Tempered" />
+                        <img src="https://images.unsplash.com/photo-1604200188039-23c89379374b?q=80&w=800&auto=format&fit=crop"
+                            class="img-fluid rounded mb-3" alt="Kaca Tempered" />
                         <p>
                             Kaca Tempered adalah kaca float biasa yang telah ditingkatkan kekuatannya melalui proses
                             pemanasan termal ekstrem dan pendinginan cepat.
@@ -470,22 +476,15 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                        <a
-                            href="https://wa.me/6287775080483?text=Halo%2C%20saya%20mau%20tanya%20lebih%20lanjut%20tentang%20*Kaca%20Tempered*."
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="btn btn-whatsapp fw-bold">
+                        <a href="https://wa.me/6287775080483?text=Halo%2C%20saya%20mau%20tanya%20lebih%20lanjut%20tentang%20*Kaca%20Tempered*."
+                            target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp fw-bold">
                             <i class="bi bi-whatsapp me-2"></i>Tanya Admin
                         </a>
                     </div>
                 </div>
             </div>
         </div>
-        <div
-            class="modal fade"
-            id="modalKacaLaminated"
-            tabindex="-1"
-            aria-labelledby="modalKacaLaminatedLabel"
+        <div class="modal fade" id="modalKacaLaminated" tabindex="-1" aria-labelledby="modalKacaLaminatedLabel"
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
@@ -516,19 +515,22 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                        <a
-                            href="https://wa.me/6287775080483?text=Halo%2C%20saya%20mau%20tanya%20lebih%20lanjut%20tentang%20*Kaca%20Laminated*."
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="btn btn-whatsapp fw-bold">
+                        <a href="https://wa.me/6287775080483?text=Halo%2C%20saya%20mau%20tanya%20lebih%20lanjut%20tentang%20*Kaca%20Laminated*."
+                            target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp fw-bold">
                             <i class="bi bi-whatsapp me-2"></i>Tanya Admin
                         </a>
                     </div>
                 </div>
             </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" ...></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <script src="../assets/js/animations.js"></script>
         <script src="../assets/js/main.js"></script>
         <script src="../assets/js/page-kaca.js"></script>
     </body>
+
 </html>
